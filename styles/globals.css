@@ -9,5 +9,20 @@
 .zilla-slab{
   font-family: "Zilla Slab", system-ui;
   font-weight: 400;
+  color: var(--text-color);
   font-style: normal;
+}
+:root
+{
+  --accent-color:#DDA0DD;
+  --main-background-color: #F4F4F0;
+  background-color: var(--main-background-color);
+  --main-text-color: #333333;
+  --secondary-text-color: #333333;
+  --button-background-color: #ffffff;
+}
+
+:root
+.bg-main{
+  background-color: white;
 }

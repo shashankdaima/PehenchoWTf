@@ -2,8 +2,8 @@ import { Card } from "./neobrutalism/card";
 
 const LookingforSWE_Header = () => {
     return (
-        <Card className="absolute y-0 z-10  w-full mx-auto border-0 flex flex-col justify-center items-center">
-            <p className="zilla-slab text-xl my-4">
+        <div className="absolute y-0 z-10 bg-[var(--accent-color)]  w-full mx-auto border-0 flex flex-col justify-center items-center border-b-4 border-black">
+            <p className="zilla-slab md:text-xl text-lg my-4 text-center mx-4">
                 Are you looking for a fulltime/freelance software engineer?{" "}
                 <a href="https://shashankdaima.com" className="font-bold hover:underline">
                     {" "}
@@ -11,7 +11,7 @@ const LookingforSWE_Header = () => {
                     {" ->"}
                 </a>
             </p>
-        </Card>
+        </div>
     );
 };
 export default LookingforSWE_Header;
