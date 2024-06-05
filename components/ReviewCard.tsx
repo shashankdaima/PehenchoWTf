@@ -1,3 +1,4 @@
+"use client"
 import { Button } from "./neobrutalism/button";
 import {
   Card,
@@ -10,8 +11,9 @@ import {
 interface ReviewCardProps {
   title: string;
   description: string;
-  id: number;
-  rank: number;
+  id: string;
+  rank: number|0;
+  upvotes:number;
 }
 const ReviewCard = (props: ReviewCardProps) => {
   return (
@@ -23,6 +25,8 @@ const ReviewCard = (props: ReviewCardProps) => {
         <CardDescription className="zilla-slab font-medium text-xl">
           {props.description}
         </CardDescription>
+
+        <CardDescription className="zilla-slab mt-3 !font-semibold text-lg ">{props.upvotes} Upvotes</CardDescription>
       </CardHeader>
       <CardFooter className="flex space-x-4">
         <Button size="lg">Upvote</Button>
