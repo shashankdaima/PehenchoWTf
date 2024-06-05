@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bangers-regular {
+  font-family: "Bangers", system-ui;
+}
+
+.zilla-slab{
+  font-family: "Zilla Slab", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
