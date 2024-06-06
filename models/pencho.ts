@@ -2,7 +2,7 @@
 interface Pencho {
     id: string;
     title: string;
-    content: string;
+    description: string;
     upvotes: number;
 }   
 
