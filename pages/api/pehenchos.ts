@@ -26,15 +26,15 @@ export default async function handler(
             })
         }
     } else if (req.method === 'POST') {
-        const { name, description } = req.body;
+        const { title, content } = req.body;
 
-        if (!name || !description) {
+        if (!title || !content) {
             res.status(400).json({ message: 'Missing required fields' });
             return;
         }
 
         try {
-            // const newPencho = await addPencho();
+            await addPencho(title, content);
             res.status(201).json({ success: true });
         } catch (error) {
             res.status(500).json({ message: 'Failed to create new Pencho' });

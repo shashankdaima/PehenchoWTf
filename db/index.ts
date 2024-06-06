@@ -8,7 +8,7 @@ const connectionString = process.env.NEXT_PUBLIC_SUPABASE_CONNECTION_STRING
 const client = postgres(connectionString, { prepare: false })
 const db = drizzle(client);
 
-const getPenchoCount=async ()=>{
+const getPenchoCount = async () => {
   try {
     const count = (await db.select({ count: sql<number>`count(*)` }).from(pencho))[0].count
     return count;
@@ -42,7 +42,6 @@ const addPencho = async (title: string, description: string) => {
 
 const upvotePencho = async (id: string) => {
   try {
-
     await db.update(pencho).set({ upvotes: sql`${pencho.upvotes} + 1` }).where(eq(pencho.id, id)).execute();
   } catch (error) {
     console.error('Error upvoting pencho:', error);
@@ -50,4 +49,4 @@ const upvotePencho = async (id: string) => {
   }
 }
 
-export { getPencho, addPencho, upvotePencho ,getPenchoCount};
+export { getPencho, addPencho, upvotePencho, getPenchoCount };

@@ -24,10 +24,11 @@
     "react-dom": "18.2.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "tls": "^0.0.1"
+    "tls": "^0.0.1",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
-    "@types/node":  "^20.14.2",
+    "@types/node": "^20.14.2",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "autoprefixer": "^10.4.19",

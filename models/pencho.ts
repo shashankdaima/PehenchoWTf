@@ -5,5 +5,4 @@ interface Pencho {
     description: string;
     upvotes: number;
 }   
-
 export default Pencho;

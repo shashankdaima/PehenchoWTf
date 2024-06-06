@@ -1,4 +1,5 @@
 "use client"
+import { errorStore } from "../sm-hooks/errorStore";
 import { Button } from "./neobrutalism/button";
 import {
   Card,
@@ -16,8 +17,32 @@ interface ReviewCardProps {
   upvotes: number;
 }
 const ReviewCard = (props: ReviewCardProps) => {
+  const setError = errorStore((state: any) => state.setError);
   async function onUpvote() {
+    const url = `/api/upvotePehencho`;
+    const data = { penchoId: props.id };
+
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const result = await response.json();
+      //TODO: COMPLETE THIS UPVOTE PROCEESS 
+
+    } catch (err) {
+      setError(err.message);
+    }
   }
+
 
   return (
     <Card>
