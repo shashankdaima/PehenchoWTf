@@ -80,7 +80,7 @@ const HomePageClient = (props: HomePageClientProps) => {
                         <PaginationEllipsis />
                     </PaginationItem>}
                     <PaginationItem>
-                        <PaginationNext aria-disabled href={`?page=${props.page + 1}&pageSize=${props.pageSize}`} />
+                        <PaginationNext  href={`?page=${props.page + 1}&pageSize=${props.pageSize}`} />
                     </PaginationItem>
                 </PaginationContent>
             </Pagination>;
