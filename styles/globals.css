@@ -26,3 +26,19 @@
 .bg-main{
   background-color: white;
 }
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var( --main-background-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  /* bg-[#2F2F2F] */
+  background: black;
+  border-radius: 0px;
+}

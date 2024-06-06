@@ -4,6 +4,7 @@ import { Button } from "./neobrutalism/button";
 import { Input } from "./neobrutalism/input";
 import { Textarea } from "./neobrutalism/text-area";
 import { Close } from "@radix-ui/react-dialog";
+import { errorStore } from "../sm-hooks/errorStore";
 
 interface AddPenchoformProps {
     onClose: (reload: boolean) => void
@@ -13,6 +14,7 @@ interface AddPenchoformProps {
 const AddPenchoform = (props: AddPenchoformProps) => {
     const [content, setContent] = useState<string>("");
     const [title, setTitle] = useState<string>("");
+    const setError = errorStore((state: any) => state.setError);
     const onSubmit = async () => {
         const url = `/api/pehenchos`;
         const data = {
@@ -33,11 +35,11 @@ const AddPenchoform = (props: AddPenchoformProps) => {
                 throw new Error('Network response was not ok');
             }
 
-            const result = await response.json();
+            await response.json();
             props.onClose(true);
 
         } catch (err) {
-            // setError(err.message);
+            setError(err.message);
             console.log(err);
         }
     }

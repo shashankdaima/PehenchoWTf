@@ -1,4 +1,5 @@
 "use client"
+import { useState } from "react";
 import { errorStore } from "../sm-hooks/errorStore";
 import { Button } from "./neobrutalism/button";
 import {
@@ -18,6 +19,7 @@ interface ReviewCardProps {
 }
 const ReviewCard = (props: ReviewCardProps) => {
   const setError = errorStore((state: any) => state.setError);
+  const [upvotes, setUpvotes] = useState(props.upvotes);
   async function onUpvote() {
     const url = `/api/upvotePehencho`;
     const data = { penchoId: props.id };
@@ -35,7 +37,8 @@ const ReviewCard = (props: ReviewCardProps) => {
         throw new Error('Network response was not ok');
       }
 
-      const result = await response.json();
+      await response.json();
+      setUpvotes(upvotes + 1);
       //TODO: COMPLETE THIS UPVOTE PROCEESS 
 
     } catch (err) {
@@ -53,7 +56,7 @@ const ReviewCard = (props: ReviewCardProps) => {
         <CardDescription className="zilla-slab font-medium text-lg md:text-xl ">
           {props.description}
         </CardDescription>
-        <CardDescription className="zilla-slab mt-3 !font-semibold text-lg ">{props.upvotes} Upvotes</CardDescription>
+        <CardDescription className="zilla-slab mt-3 !font-semibold text-lg ">{upvotes} Upvotes</CardDescription>
       </CardHeader>
       <CardFooter className="flex space-x-4">
         <Button size="lg" className="bg-[var(--accent-color)] " onClick={onUpvote}>Upvote</Button>

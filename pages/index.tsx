@@ -17,12 +17,14 @@ import CTA from "../components/CTA";
 import Footer from "../components/Footer";
 
 import { Button } from "../components/neobrutalism/button";
-import { PenLine } from "lucide-react";
+import { Ban, PenLine, Terminal } from "lucide-react";
 import Pencho from "../models/pencho";
 import { HomePageClient } from './_index';
 import { errorStore } from '../sm-hooks/errorStore';
 import { AddPenchoform } from '../components/addPencho.form';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Toaster, toast } from 'sonner'
+import { Alert, AlertDescription, AlertTitle } from '../components/neobrutalism/alert';
 
 export async function getServerSideProps(context: any) {
 
@@ -31,24 +33,59 @@ export async function getServerSideProps(context: any) {
   const host = req.headers['host'];
   const baseUrl = `${protocol}://${host}`;
 
-  // Fetch data from an external API
-  const res = await fetch(`${baseUrl}/api/pehenchos?page=${query.page}&pageSize=${query.pageSize}`);
-  const data = await res.json();
+  try {
+    // Fetch data from an external API
+    const res = await fetch(`${baseUrl}/api/pehenchos?page=${query.page}&pageSize=${query.pageSize}`);
+    const data = await res.json();
 
-  return {
-    props: { data: data.items },
-  };
+    return {
+      props: {
+        data: data.items,
+        page: parseInt(query.page) || 1,
+        pageSize: parseInt(query.pageSize) || 10,
+        totalPageCount: data.totalPages
+      },
+    };
+  } catch (error) {
+    console.error('Failed to fetch data:', error);
+    return {
+      props: {
+        data: [],
+        page: 1,
+        pageSize: 10,
+        totalPageCount: 0
+      },
+    };
+  }
 }
 
 interface HomeProps {
   data: Pencho[];
-  count: number;
   page: number;
-  pageSize: number
+  pageSize: number,
+  totalPageCount: number
 }
 
 const Home: NextPage = (props: HomeProps) => {
   const error = errorStore((state: any) => state.error);
+  const setError = errorStore((state: any) => state.setError);
+  useEffect(() => {
+    if (error) {
+      toast.custom(() => {
+        return (
+          <Alert variant='destructive' className='!m-0' >
+            <Ban className="h-4 w-4" />
+            <AlertTitle>Some Error Occured</AlertTitle>
+            <AlertDescription>
+              {error}
+            </AlertDescription>
+          </Alert>
+        );
+      });
+      setError(undefined); // Reset the error after showing the toast
+    }
+  }, [error, setError]);
+
   const addPenchoform = <AddPenchoform onClose={(reload) => {
     setDialogMode("none");
     if (reload) {
@@ -74,7 +111,6 @@ const Home: NextPage = (props: HomeProps) => {
         />
       </Head>
 
-
       <LookingforSWE_Header />
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
@@ -87,7 +123,7 @@ const Home: NextPage = (props: HomeProps) => {
         animate={{ translateY: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
       >
-        <HomePageClient posts={props.data} />
+        <HomePageClient posts={props.data} page={props.page} pageSize={props.pageSize} totalPageCount={props.totalPageCount} />
       </motion.div>
 
 
@@ -121,6 +157,7 @@ const Home: NextPage = (props: HomeProps) => {
         </SheetTrigger>
 
       </Sheet>
+      <Toaster />
     </>
 
   );
