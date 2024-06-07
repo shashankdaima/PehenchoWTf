@@ -7,7 +7,7 @@ import LookingforSWE_Header from "../components/LookingforSWE.header";
 import Footer from "../components/Footer";
 import { ArrowUp, Ban, PenLine, Terminal } from "lucide-react";
 import Pencho from "../models/pencho";
-import { HomePageClient } from './_index';
+import { HomePageClient } from '../components/postList';
 import { errorStore } from '../sm-hooks/errorStore';
 import { AddPenchoform } from '../components/addPencho.form';
 import { useEffect, useState } from 'react';
@@ -18,6 +18,7 @@ import { Button } from "../components/neobrutalism/button";
 import ConfettiExplosion from "react-confetti-explosion";
 import { redirect } from "next/dist/server/api-utils";
 import { useRouter } from "next/router";
+import Link from 'next/link';
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
@@ -76,9 +77,10 @@ const PenchoCard: NextPage = (props: any) => {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.3 }} >
         <div className="container mx-auto  max-w-6xl flex flex-col justify-center items-center">
-          <a href="/" className=" bangers-regular mt-28 mb-6 md:mb-12  text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
+          <Link href="/" className=" bangers-regular mt-28 mb-6 md:mb-12  text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
             Pehencho WTf!
-          </a>
+          </Link>
+
         </div>
       </motion.div>
 
@@ -132,10 +134,13 @@ const PenchoCard: NextPage = (props: any) => {
         <h2 className="max-w-lg  zilla-slab text-xl md:text-2xl lg:text-3xl mx-8 justify-center items-center text-center">
           Check out the <strong>TOP 3 POSTS</strong> on the <strong>leaderboard of the worst fuckery</strong>...
         </h2>
+
         {props.topItems.map((post, index) => (
           <ReviewCard
             id={post.id}
             title={post.title}
+            key={post.id}
+
             description={post.description}
             rank={index + 1}
             upvotes={post.upvotes}

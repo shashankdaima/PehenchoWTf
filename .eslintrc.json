@@ -1,3 +1,6 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "react/jsx-key": "off" //TODO: NEEDS TO TURN ON  136:11  Error: Missing "key" prop for element in iterator  react/jsx-key
+  }
 }

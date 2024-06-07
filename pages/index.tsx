@@ -18,7 +18,7 @@ import Footer from "../components/Footer";
 import { Button } from "../components/neobrutalism/button";
 import { Ban, PenLine, Terminal } from "lucide-react";
 import Pencho from "../models/pencho";
-import { HomePageClient } from './_index';
+import { HomePageClient } from '../components/postList';
 import { errorStore } from '../sm-hooks/errorStore';
 import { AddPenchoform } from '../components/addPencho.form';
 import { useEffect, useState } from 'react';

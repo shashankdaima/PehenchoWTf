@@ -48,7 +48,7 @@ const ReviewCard = (props: ReviewCardProps) => {
 
 
   return (
-    <Card className="max-w-xl  mx-auto">
+    <Card id={props.id} key={props.id} className="max-w-xl  mx-auto">
       <CardHeader>
         <CardTitle className="bangers-regular text-3xl">
           #{props.rank}. {props.title}

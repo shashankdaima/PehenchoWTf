@@ -1,4 +1,4 @@
-import ReviewCard from "../components/ReviewCard";
+import ReviewCard from "./ReviewCard";
 import Pencho from "../models/pencho";
 import {
     Pagination,
@@ -8,7 +8,7 @@ import {
     PaginationLink,
     PaginationNext,
     PaginationPrevious,
-} from '../components/neobrutalism/pagination'
+} from './neobrutalism/pagination'
 import { useEffect, useState } from "react";
 interface HomePageClientProps {
     posts: Pencho[],
@@ -47,6 +47,7 @@ const HomePageClient = (props: HomePageClientProps) => {
                 {
                     posts.map((post, index) => (
                         <ReviewCard
+                        key={post.id}
                             id={post.id}
                             title={post.title}
                             description={post.description}
