@@ -134,7 +134,7 @@ const Home: NextPage = (props: HomeProps) => {
             Pehencho WTf!
           </h1>
           <h2 className="max-w-lg  zilla-slab text-xl md:text-2xl lg:text-3xl mx-8 justify-center items-center text-center">
-            Jot Down your most <strong>FUCKED-UP SHIT/STORY(##)</strong>, and
+            Jot Down your most <strong>FUCKED-UP DELHI SHIT/STORY(##)</strong>, and
             let’s find out who got the <strong>WORST</strong>.
           </h2>
 
