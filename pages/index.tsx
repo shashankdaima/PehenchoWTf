@@ -13,7 +13,6 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { motion } from "framer-motion";
 import LookingforSWE_Header from "../components/LookingforSWE.header";
-import CTA from "../components/CTA";
 import Footer from "../components/Footer";
 
 import { Button } from "../components/neobrutalism/button";
@@ -116,7 +115,16 @@ const Home: NextPage = (props: HomeProps) => {
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.3 }} >
-        <CTA />
+        <div className="container mx-auto max-w-6xl flex flex-col justify-center items-center">
+          <h1 className=" bangers-regular mt-32 mb-4  text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
+            Pehencho WTf!
+          </h1>
+          <h2 className="max-w-lg  zilla-slab text-xl md:text-2xl lg:text-3xl mx-8 justify-center items-center text-center">
+            Jot Down your most <strong>FUCKED-UP DELHI SHIT(##)</strong>, and
+            let’s find out who got the <strong>WORST</strong>.
+          </h2>
+         
+        </div>
       </motion.div>
       <motion.div
         initial={{ translateY: 500, opacity: 0 }}

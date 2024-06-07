@@ -48,12 +48,12 @@ const ReviewCard = (props: ReviewCardProps) => {
 
 
   return (
-    <Card>
+    <Card className="max-w-xl  mx-auto">
       <CardHeader>
         <CardTitle className="bangers-regular text-3xl">
           #{props.rank}. {props.title}
         </CardTitle>
-        <CardDescription className="zilla-slab font-medium text-lg md:text-xl ">
+        <CardDescription className="zilla-slab font-medium text-lg md:text-xl w-full flex-grow">
           {props.description}
         </CardDescription>
         <CardDescription className="zilla-slab mt-3 !font-semibold text-lg ">{upvotes} Upvotes</CardDescription>
