@@ -109,6 +109,7 @@ const Home: NextPage = (props: HomeProps) => {
           href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
           rel="stylesheet"
         />
+        <script defer src="https://cloud.umami.is/script.js" data-website-id="bef2b713-e7b6-4037-84ff-847ec76a5eb2"></script>
         <link
           href="https://fonts.googleapis.com/css2?family=Bangers&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
           rel="stylesheet"
