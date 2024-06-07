@@ -6,7 +6,9 @@
     "dev": "next dev --port 3000 --hostname 0.0.0.0",
     "build": "next build",
     "start": "next start --port 3000 --hostname 0.0.0.0",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pg:generate": "drizzle-kit generate ",
+    "pg:migrate": " drizzle-kit migrate"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
@@ -15,6 +17,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "drizzle-orm": "^0.31.1",
+    "firebase": "^10.12.2",
     "framer-motion": "^11.2.10",
     "html2canvas": "^1.4.1",
     "lucide-react": "^0.383.0",

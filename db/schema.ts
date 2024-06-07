@@ -6,4 +6,5 @@ export const pencho = pgTable('pencho', {
   description: text('description'),
   upvotes: integer('upvotes').default(0),
   created_at: timestamp('created_at').defaultNow(),
+  image: text("image")
 });

@@ -1,0 +1,1 @@
+ALTER TABLE "pencho" ADD COLUMN "image" text;
