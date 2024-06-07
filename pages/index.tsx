@@ -66,9 +66,7 @@ interface HomeProps {
 }
 
 const Home: NextPage = (props: HomeProps) => {
-  if(props.totalPageCount==0){
-    return <ErrorPage statusCode={500} />;
-  }
+
   const error = errorStore((state: any) => state.error);
   const setError = errorStore((state: any) => state.setError);
   useEffect(() => {
@@ -96,6 +94,9 @@ const Home: NextPage = (props: HomeProps) => {
     }
   }} />;
   const [dialogMode, setDialogMode] = useState<"dialog" | "sheet" | "none">("none");
+  if(props.totalPageCount==0){
+    return <ErrorPage statusCode={500} />;
+  }
   return (
     <>
       <Head>
