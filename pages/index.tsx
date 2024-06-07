@@ -108,6 +108,16 @@ const Home: NextPage = (props: HomeProps) => {
           href="https://fonts.googleapis.com/css2?family=Bangers&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
           rel="stylesheet"
         />
+        <meta name="twitter:card" content="summary_large_image"></meta>
+        <meta name="twitter:title" content="Pehencho WTF"></meta>
+        <meta name="twitter:description" content="Jot Down your most FUCKED-UP DELHI SHIT(##), and let’s find out who got the WORST."></meta>
+        <meta name="twitter:image" content="https://pehencho.wtf/og.png"></meta>
+        <meta property="og:title" content="Pehencho WTF" />
+        <meta property="og:description" content="Jot Down your most FUCKED-UP DELHI SHIT(##), and let’s find out who got the WORST." />
+        <meta property="og:image" content="https://pehencho.wtf/og.png" />
+        <meta property="og:url" content="https://pehencho.wtf" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Pehencho WTF" />
       </Head>
 
       <LookingforSWE_Header />
@@ -123,7 +133,7 @@ const Home: NextPage = (props: HomeProps) => {
             Jot Down your most <strong>FUCKED-UP DELHI SHIT(##)</strong>, and
             let’s find out who got the <strong>WORST</strong>.
           </h2>
-         
+
         </div>
       </motion.div>
       <motion.div
