@@ -24,7 +24,7 @@ import { AddPenchoform } from '../components/addPencho.form';
 import { useEffect, useState } from 'react';
 import { Toaster, toast } from 'sonner'
 import { Alert, AlertDescription, AlertTitle } from '../components/neobrutalism/alert';
-
+import ErrorPage from 'next/error';
 export async function getServerSideProps(context: any) {
 
   const { req, query } = context;
@@ -66,6 +66,9 @@ interface HomeProps {
 }
 
 const Home: NextPage = (props: HomeProps) => {
+  if(props.totalPageCount==0){
+    return <ErrorPage statusCode={500} />;
+  }
   const error = errorStore((state: any) => state.error);
   const setError = errorStore((state: any) => state.setError);
   useEffect(() => {
@@ -85,10 +88,11 @@ const Home: NextPage = (props: HomeProps) => {
     }
   }, [error, setError]);
 
-  const addPenchoform = <AddPenchoform onClose={(reload) => {
+  const addPenchoform = <AddPenchoform onClose={(uid,reload) => {
     setDialogMode("none");
     if (reload) {
       //TODO: Reload this page;
+      window.location.href = `/${uid}?confetti=true`;
     }
   }} />;
   const [dialogMode, setDialogMode] = useState<"dialog" | "sheet" | "none">("none");
@@ -96,7 +100,7 @@ const Home: NextPage = (props: HomeProps) => {
     <>
       <Head>
         <title>Pehencho.WTF</title>
-        <meta name="description" content="Jot Down your most FUCKED-UP DELHI SHIT(##), and let’s find out who got the WORST." />
+        <meta name="description" content="Jot Down your most FUCKED-UP SHIT/STORY(##), and let’s find out who got the WORST." />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -110,10 +114,10 @@ const Home: NextPage = (props: HomeProps) => {
         />
         <meta name="twitter:card" content="summary_large_image"></meta>
         <meta name="twitter:title" content="Pehencho WTF"></meta>
-        <meta name="twitter:description" content="Jot Down your most FUCKED-UP DELHI SHIT(##), and let’s find out who got the WORST."></meta>
+        <meta name="twitter:description" content="Jot Down your most FUCKED-UP SHIT/STORY(##), and let’s find out who got the WORST."></meta>
         <meta name="twitter:image" content="https://pehencho.wtf/og.png"></meta>
         <meta property="og:title" content="Pehencho WTF" />
-        <meta property="og:description" content="Jot Down your most FUCKED-UP DELHI SHIT(##), and let’s find out who got the WORST." />
+        <meta property="og:description" content="Jot Down your most FUCKED-UP SHIT/STORY(##), and let’s find out who got the WORST." />
         <meta property="og:image" content="https://pehencho.wtf/og.png" />
         <meta property="og:url" content="https://pehencho.wtf" />
         <meta property="og:type" content="website" />
@@ -130,7 +134,7 @@ const Home: NextPage = (props: HomeProps) => {
             Pehencho WTf!
           </h1>
           <h2 className="max-w-lg  zilla-slab text-xl md:text-2xl lg:text-3xl mx-8 justify-center items-center text-center">
-            Jot Down your most <strong>FUCKED-UP DELHI SHIT(##)</strong>, and
+            Jot Down your most <strong>FUCKED-UP SHIT/STORY(##)</strong>, and
             let’s find out who got the <strong>WORST</strong>.
           </h2>
 

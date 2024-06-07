@@ -33,7 +33,9 @@ const getPencho = async (pageNo: number, pageSize: number) => {
 const addPencho = async (title: string, description: string) => {
   try {
     const now = new Date().toISOString();
-    await db.insert(pencho).values({ title, description }).execute();
+    const value= await db.insert(pencho).values({ title, description }).returning().execute();
+    // console.log(value);
+    return value;
   } catch (error) {
     console.error('Error adding pencho:', error);
     throw error;

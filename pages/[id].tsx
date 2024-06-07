@@ -6,18 +6,9 @@ import { motion } from "framer-motion";
 import LookingforSWE_Header from "../components/LookingforSWE.header";
 import Footer from "../components/Footer";
 import { ArrowUp, Ban, PenLine, Terminal } from "lucide-react";
-import Pencho from "../models/pencho";
-import { HomePageClient } from '../components/postList';
-import { errorStore } from '../sm-hooks/errorStore';
-import { AddPenchoform } from '../components/addPencho.form';
-import { useEffect, useState } from 'react';
-import { Toaster, toast } from 'sonner'
-import { Alert, AlertDescription, AlertTitle } from '../components/neobrutalism/alert';
 import ReviewCard from "../components/ReviewCard";
 import { Button } from "../components/neobrutalism/button";
 import ConfettiExplosion from "react-confetti-explosion";
-import { redirect } from "next/dist/server/api-utils";
-import { useRouter } from "next/router";
 import Link from 'next/link';
 
 export async function getServerSideProps(context) {
@@ -57,7 +48,7 @@ const PenchoCard: NextPage = (props: any) => {
     <>
       <Head>
         <title>Pehencho.WTF</title>
-        <meta name="description" content="Jot Down your most FUCKED-UP DELHI SHIT(##), and let’s find out who got the WORST." />
+        <meta name="description" content="Jot Down your most FUCKED-UP SHIT/STORY(##), and let’s find out who got the WORST." />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />

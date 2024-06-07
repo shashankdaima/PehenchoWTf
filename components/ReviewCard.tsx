@@ -20,6 +20,16 @@ interface ReviewCardProps {
 const ReviewCard = (props: ReviewCardProps) => {
   const setError = errorStore((state: any) => state.setError);
   const [upvotes, setUpvotes] = useState(props.upvotes);
+  function generateTwitterIntent(message: string, url: string): string {
+    // Encode message and URL
+    const encodedMessage = encodeURIComponent(message);
+    const encodedUrl = encodeURIComponent(url);
+
+    // Construct Twitter intent URL
+    const twitterIntentUrl = `https://twitter.com/intent/tweet?text=${encodedMessage}&url=${encodedUrl}`;
+
+    return twitterIntentUrl;
+  }
   async function onUpvote() {
     const url = `/api/upvotePehencho`;
     const data = { penchoId: props.id };
@@ -60,7 +70,10 @@ const ReviewCard = (props: ReviewCardProps) => {
       </CardHeader>
       <CardFooter className="flex space-x-4">
         <Button size="lg" className="bg-[var(--accent-color)] " onClick={onUpvote}>Upvote</Button>
-        <Button size="lg">Share</Button>
+        <Button size="lg" onClick={() => {
+          const tweetIntent = generateTwitterIntent("Check out this post at ", `https://pehencho.wtf/${props.id}`);
+          window.location.href = tweetIntent;
+        }}>Share</Button>
       </CardFooter>
     </Card>
   );

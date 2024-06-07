@@ -34,8 +34,8 @@ export default async function handler(
         }
 
         try {
-            await addPencho(title, content);
-            res.status(201).json({ success: true });
+           const value= await addPencho(title, content);
+            res.status(201).json({ success: true , id:value[0].id});
         } catch (error) {
             res.status(500).json({ message: 'Failed to create new Pencho' });
         }
