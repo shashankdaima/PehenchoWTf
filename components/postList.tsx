@@ -59,9 +59,12 @@ const HomePageClient = (props: HomePageClientProps) => {
             </div>
             <Pagination className="mt-12">
                 <PaginationContent>
-                    <PaginationItem >
+                    {(props.page != 1) &&
+                        <PaginationItem >
                         <PaginationPrevious href={`?page=${props.page - 1}&pageSize=${props.pageSize}`} />
                     </PaginationItem>
+                    }
+                    
                     {(props.page >= 3) && <PaginationItem>
                         <PaginationEllipsis />
                     </PaginationItem>}
@@ -80,9 +83,10 @@ const HomePageClient = (props: HomePageClientProps) => {
                     {(props.totalPageCount - props.page > 1) && <PaginationItem>
                         <PaginationEllipsis />
                     </PaginationItem>}
+                    {(props.totalPageCount - props.page != 0) &&
                     <PaginationItem>
                         <PaginationNext  href={`?page=${props.page + 1}&pageSize=${props.pageSize}`} />
-                    </PaginationItem>
+                    </PaginationItem>}
                 </PaginationContent>
             </Pagination>;
         </>
