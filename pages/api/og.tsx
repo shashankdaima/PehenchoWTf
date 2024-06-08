@@ -25,7 +25,7 @@ const zillaSlab = fetch(
 //     return data.item;
 // };
 async function fetchData(id: string) {
-    const response = await fetch(`http://0.0.0.0:3000/api/getPenchoById?id=${id}`);
+    const response = await fetch(`https://pehencho.wtf/api/getPenchoById?id=${id}`);
     if (!response.ok) {
         throw new Error('Network response was not ok');
     }
