@@ -60,16 +60,11 @@ const PenchoCard: NextPage = (props: any) => {
           href="https://fonts.googleapis.com/css2?family=Bangers&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
           rel="stylesheet"
         />
-        <meta name="twitter:card" content="summary"></meta>
+        <meta name="twitter:card" content="summary_large_image"></meta>
         <meta name="twitter:title" content={props.item[0].title}></meta>
         <meta name="twitter:description" content={props.item[0].description}></meta>
-        <meta name="twitter:image" content="https://pehencho.wtf/name-og.png"></meta>
-        <meta property="og:title" content={props.item[0].title} />
-        <meta property="og:description" content={props.item[0].description} />
-        <meta property="og:image" content="https://pehencho.wtf/name-og.png" />
-        <meta property="og:url" content="https://pehencho.wtf" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Pehencho WTF" />
+        <meta name="twitter:image" content={`https://pehencho.wtf/api/og?id=${props.item[0].id}`}></meta>
+
       </Head>
 
       <LookingforSWE_Header />

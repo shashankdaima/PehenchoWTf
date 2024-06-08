@@ -118,12 +118,7 @@ const Home: NextPage = (props: HomeProps) => {
         <meta name="twitter:title" content="Pehencho WTF"></meta>
         <meta name="twitter:description" content="Jot Down your most FUCKED-UP SHIT/STORY(##), and let’s find out who got the WORST."></meta>
         <meta name="twitter:image" content="https://pehencho.wtf/og.png"></meta>
-        <meta property="og:title" content="Pehencho WTF" />
-        <meta property="og:description" content="Jot Down your most FUCKED-UP SHIT/STORY(##), and let’s find out who got the WORST." />
-        <meta property="og:image" content="https://pehencho.wtf/og.png" />
-        <meta property="og:url" content="https://pehencho.wtf" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Pehencho WTF" />
+
       </Head>
 
       <LookingforSWE_Header />
